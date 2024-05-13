@@ -11,7 +11,6 @@ import java.util.List;
 @Configuration
 public class ApplicationConfiguration {
 
-
 	@Bean
 	public AzureVectorStore vectorStore(SearchIndexClient searchIndexClient, EmbeddingClient embeddingClient) {
 		var vectorStore = new AzureVectorStore(searchIndexClient, embeddingClient,
@@ -20,4 +19,6 @@ public class ApplicationConfiguration {
 		vectorStore.setIndexName("carina-index");
 		return vectorStore;
 	}
+
+
 }

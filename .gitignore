@@ -33,3 +33,13 @@ build/
 .vscode/
 
 shell.log
+
+# Emacs temporary files
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*

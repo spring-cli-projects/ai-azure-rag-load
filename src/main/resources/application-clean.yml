@@ -12,6 +12,6 @@ spring:
             deployment-name: gpt-35-turbo-16k
     vectorstore:
       azure:
-        api-key: 
+        api-key:
         url: https://spring-ai-search.search.windows.net
         index-name: carina_index

@@ -8,9 +8,13 @@ import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
@@ -21,6 +25,8 @@ import java.util.List;
 public class DataLoadingJob implements CommandLineRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(DataLoadingJob.class);
+
+	private ApplicationContext applicationContext;
 
 	@Value("classpath:/data/medicaid-wa-faqs.pdf")
 	private Resource pdfResource;
@@ -40,6 +46,7 @@ public class DataLoadingJob implements CommandLineRunner {
 	public void run(String... args) {
 		load(pdfResource, 1);
 		load(pdfResource2, 2);
+		System.exit(0);
 	}
 	public void load(Resource resource, int version) {
 		// Extract
@@ -70,6 +77,4 @@ public class DataLoadingJob implements CommandLineRunner {
 		logger.info("Done parsing document, splitting, creating embeddings and storing in vector store");
 
 	}
-
-
 }
