@@ -22,23 +22,36 @@ The second and third steps are done in the application in the repository https:/
 
 ## Prerequisites
 
-### Azure OpenAI Credentials
+### Azure OpenAI setup
 
-Obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com)
+1. Obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com) and deploy a chat model, such as `gpt-35-turbo-16k` and an embedding model such as `text-embedding-ada-002`.
 
-The Spring AI project defines a configuration property named `spring.ai.azure.openai.api-key` that you should set to the value of the `API Key` obtained from Azure
+2. Create an instance of [Azure AI Search vector database](https://azure.microsoft.com/en-us/products/ai-services/ai-search/) and obtain the API keys and URL.
 
-Exporting an environment variables is one way to set these configuration properties.
-```shell
-export SPRING_AI_AZURE_OPENAI_API_KEY=<INSERT KEY HERE>
-export SPRING_AI_AZURE_OPENAI_ENDPOINT=<INSERT ENDPOINT URL HERE>
-export SPRING_AI_AZURE_OPENAI_CHAT_OPTIONS_DEPLOYMENT_NAME=<INSERT NAME HERE>
+Here is the `application.yml` file for the application. You will need to fill in the appropriate API keys, model names, and endpoints.
+Only the API keys have been removed in the configuration.
+
+```yaml
+spring:
+  ai:
+    azure:
+      openai:
+        api-key: 
+        endpoint: https://springai.openai.azure.com/
+        chat:
+          options:
+            deployment-name: gpt-35-turbo-16k
+        embedding:
+          options:
+            deployment-name: text-embedding-ada-002
+    vectorstore:
+      azure:
+        api-key: 
+        url: https://springaisearch.search.windows.net
+        index-name: carina_index
 ```
-Note, the `/resources/application.yml` references the environment variable `${SPRING_AI_AZURE_OPENAI_API_KEY}`.
 
-## Azure AI VectorStore
 
-TBD
 
 ## Code overview
 
