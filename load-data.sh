@@ -13,5 +13,5 @@ az spring job deploy -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --name ai-az
 
 az spring job start -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE}  --name ai-azure-rag-load
 
-az spring job execution list -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job-name ai-azure-rag-load --query '[].{startTime:startTime, endTime:endTime, name:name, status:status}' --output table
+az spring job execution list -g ${RESOURCE_GROUP} -s ${SPRING_APPS_SERVICE} --job ai-azure-rag-load --query '[].{startTime:startTime, endTime:endTime, name:name, status:status}' --output table
 

@@ -68,7 +68,7 @@ public class DataLoadingJob implements CommandLineRunner {
 		// tag as external knowledge in the vector store's metadata
 		for (Document splitDocument : splitDocuments) {
 			splitDocument.getMetadata().put("filename", "medicaid-wa-faqs.pdf");
-			splitDocument.getMetadata().put("version", version);
+			splitDocument.getMetadata().put("version", "" + version);
 		}
 
 		// Load

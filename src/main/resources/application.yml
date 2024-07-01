@@ -10,8 +10,11 @@ spring:
         chat:
           options:
             deployment-name: gpt-35-turbo-16k
+        embedding:
+          options:
+            deployment-name: text-embedding-ada-002
     vectorstore:
       azure:
         api-key: 
-        url: https://spring-ai-search.search.windows.net
+        url: https://springaisearch.search.windows.net
         index-name: carina_index
