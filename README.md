@@ -1,3 +1,6 @@
+# This repository is no longer maintained. 
+
+
 # Spring AI Retrieval Augmented Generation with Azure OpenAI
 
 ## Introduction
